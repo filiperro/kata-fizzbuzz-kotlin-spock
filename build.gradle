@@ -33,3 +33,7 @@ jacocoTestReport {
         xml.enabled = true
     }
 }
+
+coveralls {
+    sourceDirs += ['src/main/kotlin']
+}
