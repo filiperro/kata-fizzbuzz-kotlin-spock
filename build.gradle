@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.21'
+    id 'groovy' //for spock unit tests
+    id 'jacoco' //code coverage
+    id 'com.github.kt3k.coveralls' version '2.8.2' //coveralls.io
+}
+
+repositories {
+    mavenCentral()
+}
+
+group 'com.hurricane.kata'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8 //by default targetCompatibility = sourceCompatibility
+
+dependencies {
+    //for kotlin
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    
+	//Unit testing
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.2-groovy-2.5'
+    testCompile group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+    }
+}
